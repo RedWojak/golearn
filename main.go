@@ -1,20 +1,25 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
-type car struct {
-	gasPedal      uint16
-	breakPedal    uint16
-	steeromgWheel uint16
-	topSpeedKmh   float64
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Fprintf(w, `<h1> Header: Hello World</h1>
+									<p> Paragraph: Go is great</p>
+									<hr><p> Paragraph: and simple to learn</p>`)
+
+	fmt.Fprintf(w, "<h1> Header: Hello World</h1>")
+	fmt.Fprintf(w, "<p> Paragraph: Go is great</p>")
+	fmt.Fprintf(w, "<hr><p> Paragraph: and simple to learn</p>")
+	fmt.Fprintf(w, "<hr><p> You %s even add %s </p>", "can", "<strong>variables</strong>")
+
 }
 
 func main() {
-	aCar := car{gasPedal: 22341,
-		breakPedal:    0,
-		steeromgWheel: 1256,
-		topSpeedKmh:   225.0}
-
-	fmt.Println(aCar.gasPedal)
+	http.HandleFunc("/", indexHandler)
+	http.ListenAndServe(":8000", nil)
 
 }
