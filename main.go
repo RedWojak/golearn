@@ -1,11 +1,20 @@
 package main
 
-import (
-	"fmt"
-	"math/rand"
-)
+import "fmt"
+
+func add(x, y float64) float64 {
+	return x + y
+}
+
+func multiple(a, b string) (string, string) {
+	return a, b
+}
 
 func main() {
-	fmt.Println("RANDOM SHIT", rand.Intn(12))
+
+	w1, w2 := "Hey", "there"
+	var a int = 63
+
+	fmt.Println(multiple(w1, w2))
 
 }
