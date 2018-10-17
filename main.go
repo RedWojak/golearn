@@ -1,21 +1,20 @@
 package main
 
-import (
-	"fmt"
-	"net/http"
-)
+import "fmt"
 
-func index_handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "1111Whoah, Go is neat!")
-}
-
-func about_handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>This is nice Go backend</h1>")
+type car struct {
+	gasPedal      uint16
+	breakPedal    uint16
+	steeromgWheel uint16
+	topSpeedKmh   float64
 }
 
 func main() {
-	http.HandleFunc("/", index_handler)
-	http.HandleFunc("/about/", about_handler)
-	http.ListenAndServe(":8000", nil)
+	aCar := car{gasPedal: 22341,
+		breakPedal:    0,
+		steeromgWheel: 1256,
+		topSpeedKmh:   225.0}
+
+	fmt.Println(aCar.gasPedal)
 
 }
