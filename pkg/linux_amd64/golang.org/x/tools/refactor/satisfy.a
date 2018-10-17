@@ -1,7 +1,7 @@
 !<arch>
 __.PKGDEF       0           0     0     644     25098     `
 go object linux amd64 go1.6.2 X:none
-build id "3c5fd5d12b7286cb8c8c87de3434e794faafe2b0"
+build id "7f44462a089fb571563ea8f84ef79d42e6670b0c"
 
 $$
 package satisfy
